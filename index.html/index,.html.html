@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculate me!</title>
+    <style>
+        html,body{
+    height: 100%;
+    width: 100%;
+}
+.text-center{
+text-align: center;
+}
+body{
+    height: 100vh;
+    width:100vw ;
+    background-color: azure;
+    display: grid;
+    place-items: center;
+}
+.container{
+    height: 400px;
+    width:250px;
+    border: 2px solid black;
+    background-color: pink;
+}
+.button{
+    padding:20px;
+    margin:0 4px;
+    border: 2px solid black;
+    border-radius: 9px;
+    background: pink;
+    cursor: pointer;
+
+}
+.row{
+    margin: 9px 0 ;
+}
+.row input{
+  padding: 8px;
+  margin-left: 30px;
+  border: 2px solid black;
+  border-radius: 5px;
+ 
+}
+    </style>
+
+       
+</head>
+<body>
+    <h1 class="text-center">welcome to Calculate me!</h1>
+    <div class="container">
+     <div class="row">
+        <input class="input" type="text"/>
+     </div>
+     <div class=" row">
+        <button class="button">C</button>
+        
+    </div>
+        <div class=" row">
+            <button class="button">+</button>
+            <button class="button">-</button>
+            <button class="button">/</button>
+            <button class="button">*</button>
+        </div>
+        <div class=" row">
+            <button class="button">7</button>
+            <button class="button">8</button>
+            <button class="button">9</button>
+            <button class="button">0</button>
+        </div>
+        <div class=" row">
+            <button class="button">6</button>
+            <button class="button">5</button>
+            <button class="button">4</button>
+            <button class="button">3</button>
+        </div>
+        <div class=" row">
+            <button class="button">2</button>
+            <button class="button">1</button>
+            <button class="button">0</button>
+            <button class="button">=</button>
+          
+
+           
+        </div>
+    </div>
+     <script>
+          let string ="";
+            let buttons = document.querySelectorAll('.button');
+            Array.from(buttons).forEach(button => {
+            button.addEventListener('click',(e)=>{
+            if (e.target.innerHTML == '=') {
+                string= eval(string);
+                document.querySelector('input').value= string;
+            }
+            else if (e.target.innerHTML == 'C') {
+                string= "";
+                document.querySelector('input').value= string;
+            }
+            else{
+            console.log(e.target)
+            string= string + e.target.innerHTML;
+            document.querySelector('input').value= string;
+                }
+                })
+            });
+     </script>
+    
+</body>
+</html>
